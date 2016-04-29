@@ -2,10 +2,19 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 var uglify = require("gulp-uglify");
 var webpack = require('gulp-webpack');;
+var runSequence = require('run-sequence');
 var webpackConfig = require('./webpack.config.js');
 
 // Default
-gulp.task("default", ['webpack','watch','sass','js','slds-copy']);
+gulp.task('default', function(callback) {
+  return runSequence(
+    ['webpack', 'sass', 'slds-copy'],
+    'js',
+    'watch',
+    callback
+  );
+});
+
 
 // Sass Compile
 gulp.task("sass", function() {
