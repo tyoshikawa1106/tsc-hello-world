@@ -1,1 +1,0 @@
-var Greeter=function(){function e(e){this.greeting=e}return e.prototype.greet=function(){return"<h1 class='slds-text-heading--medium'>"+this.greeting+"</h1>"},e}(),greeter=new Greeter("Hello, world!");document.getElementById("hello").innerHTML=greeter.greet();
