@@ -1,8 +1,8 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var uglify = require("gulp-uglify");
-var webpack = require('gulp-webpack');;
 var runSequence = require('run-sequence');
+var webpack = require('gulp-webpack');;
 var webpackConfig = require('./webpack.config.js');
 
 // Default
@@ -14,7 +14,6 @@ gulp.task('default', function(callback) {
     callback
   );
 });
-
 
 // Sass Compile
 gulp.task("sass", function() {
@@ -43,6 +42,7 @@ gulp.task('webpack', function () {
     .pipe(gulp.dest('./public/javascripts/build'));
 });
 
+// Watch
 gulp.task('watch', function () {
   gulp.watch('./public/javascripts/**/*.ts', ['webpack']);
   gulp.watch(["./public/javascripts/**/*.js","!./public/javascripts/min/**/*.js"],["js"]);
